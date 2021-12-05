@@ -1,14 +1,16 @@
-package com.example.fooddeliveryapp;
+package com.example.fooddeliveryapp.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Login extends AppCompatActivity {
+import com.example.fooddeliveryapp.R;
+
+public class Client_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_client);
     }
 }

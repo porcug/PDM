@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodDeliveryApp">
         <activity
-            android:name=".Login"
+            android:name=".activitys.Client_Activity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +23,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".gpsTracker"
+            android:name=".activitys.Login_Activity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".gpsTracker"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activitys.MainActivity"
             android:exported="true">
 
         </activity>

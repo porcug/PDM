@@ -9,13 +9,33 @@
         <entry key="..\:/Master/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/fragment_recovery.xml" value="0.1" />
         <entry key="..\:/Master/PDM/Anrdoid/app/src/main/res/layout/activity_gps_tracker.xml" value="0.16666666666666666" />
         <entry key="..\:/Master/PDM/Anrdoid/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/drawable/category_active_item.xml" value="0.35333333333333333" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/drawable/category_item_behaver.xml" value="0.35333333333333333" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/drawable/category_normal_item.xml" value="0.35333333333333333" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/drawable/ic_baseline_expand_more_24.xml" value="0.35333333333333333" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/activity_client.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/fragment_client_restaurant.xml" value="0.1" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/fragment_login_fragment.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/fragment_recovery.xml" value="0.25" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/fragment_register.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/item_category_layout_1.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Emanuel/Desktop/PDM (programare dispozitive mobile android)/PDM/Anrdoid/app/src/main/res/layout/item_layout1.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.16666666666666666" />
+      </ProjectState>
+    </option>
   </component>
 </project>

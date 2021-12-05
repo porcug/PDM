@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.client.RestaurantFragment">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+
+            tools:itemCount="1">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/optionSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:minWidth="32dp"
+            android:minHeight="32dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </TableRow>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOption"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
