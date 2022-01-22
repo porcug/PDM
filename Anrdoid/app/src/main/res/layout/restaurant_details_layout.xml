@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RatingBar
+            android:id="@+id/favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginLeft="32sp"
+
+            android:isIndicator="true"
+            android:max="1"
+            android:numStars="1"
+            android:progressTint="#f00"
+            android:rating="1"
+            android:scaleX=".75"
+            android:scaleY=".75"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp" />
+
+        <RatingBar
+            android:id="@+id/raiting"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="16sp"
+            android:isIndicator="true"
+            android:max="5"
+            android:numStars="5"
+            android:progressTint="#FFD700"
+            android:rating="4"
+            android:scaleX=".75"
+            android:scaleY=".75"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp" />
+
+    </TableRow>
+
+</LinearLayout>

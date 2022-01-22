@@ -22,7 +22,8 @@ public class CategoryItem {
     }
 
     public void setSelected(boolean selected) {
-        this.selected = selected;
+        if(this.selected != selected)
+            this.selected = selected;
     }
 
 

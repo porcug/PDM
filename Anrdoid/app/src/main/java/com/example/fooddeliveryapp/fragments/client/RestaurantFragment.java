@@ -2,24 +2,13 @@ package com.example.fooddeliveryapp.fragments.client;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 
 import com.example.fooddeliveryapp.R;
-import com.example.fooddeliveryapp.adapters.RestaurantListAdapter;
-import com.example.fooddeliveryapp.models.Restaurant;
-
-import java.util.ArrayList;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,45 +61,6 @@ public class RestaurantFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_client_restaurant, container, false);
+        return inflater.inflate(R.layout.fragment_restaurant, container, false);
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        optionList =view.findViewById(R.id.recyclerViewOption);
-        categoryList =view.findViewById(R.id.recyclerViewCategory);
-        optionSpinner =view.findViewById(R.id.optionSpinner);
-        optionList.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
-        ArrayList<Restaurant> item =new ArrayList();
-        for(int i=0;i<50;i++)
-        {
-            item.add(new Restaurant());
-        }
-
-        RestaurantListAdapter categoryAdapter=new RestaurantListAdapter(item);
-        optionList.setLayoutManager(new LinearLayoutManager(getContext()));
-        optionList.setAdapter(categoryAdapter);
-
-
-
-    }
-    RestaurantListAdapter categoryAdapter;
-    RecyclerView optionList,categoryList;
-    Spinner optionSpinner;
 }

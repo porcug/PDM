@@ -1,12 +1,6 @@
 package com.example.fooddeliveryapp.fragments.login;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -18,8 +12,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.fooddeliveryapp.R;
-import com.example.fooddeliveryapp.util.Cechers;
+import com.example.fooddeliveryapp.util.Utili;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -123,7 +122,7 @@ public class FragmentRecovery extends Fragment implements View.OnClickListener,T
     }
     private void button3click()//sa introdus adresa de email
     {
-        if(Cechers.isValidEmail(email.getText().toString())) {
+        if(Utili.isValidEmail(email.getText().toString())) {
             // to do make request to server for change the password
             step2();
         }

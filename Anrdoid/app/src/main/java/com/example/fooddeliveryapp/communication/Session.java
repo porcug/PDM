@@ -3,27 +3,17 @@ package com.example.fooddeliveryapp.communication;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 
-import androidx.annotation.RequiresApi;
-
-import com.android.volley.toolbox.Volley;
 import com.example.fooddeliveryapp.activitys.Client_Activity;
 import com.example.fooddeliveryapp.activitys.Login_Activity;
 import com.example.fooddeliveryapp.models.Login_model;
-
+import com.example.fooddeliveryapp.models.Model;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Session {
 
@@ -34,6 +24,12 @@ public class Session {
 
         throw new Exception("Wrong Username and password combination");
     }
+    public static List<Model>getList(String url)
+    {
+        List<Model>result = new ArrayList<>();
+        return result;
+    }
+
     public static Intent getActivity(Context context )
     {
         Intent intent =new Intent(context, Client_Activity.class);

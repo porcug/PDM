@@ -1,9 +1,10 @@
 package com.example.fooddeliveryapp;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class gpsTracker extends AppCompatActivity {
 
