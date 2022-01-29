@@ -106,28 +106,29 @@
             android:id="@+id/linearLayout_step3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Parola noua" />
+                android:text="Parola noua"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editTextTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:lines="1"
                 android:inputType="textPassword"
+                android:lines="1"
                 android:minHeight="48dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Confirma parola" />
+                android:text="Confirma parola"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editTextTextPassword2"
@@ -140,7 +141,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/button6"

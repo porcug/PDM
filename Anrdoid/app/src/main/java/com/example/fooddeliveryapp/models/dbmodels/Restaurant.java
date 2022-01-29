@@ -16,4 +16,5 @@ public class Restaurant {
     private boolean favorite=false;
     private String imageUrl="";
     private List<Orders> ordersList;
+    private float lat,lon;
 }

@@ -22,7 +22,25 @@ public class Restaurant extends Model {
         private boolean favorite=false;
         private String imageUrl="";
         private List<Product> productList;
+        private float lat;
 
+        public float getLat() {
+                return lat;
+        }
+
+        public void setLat(float lat) {
+                this.lat = lat;
+        }
+
+        public float getLon() {
+                return lon;
+        }
+
+        public void setLon(float lon) {
+                this.lon = lon;
+        }
+
+        private float lon;
 
 
 

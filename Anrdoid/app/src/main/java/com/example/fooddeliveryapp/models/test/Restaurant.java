@@ -21,6 +21,13 @@ public class Restaurant extends com.example.fooddeliveryapp.models.Restaurant {
         super.setDescription(lorem.getTitle(5,20));
         super.setPopularity(random.nextFloat()*10);
         super.setFavorite(random.nextBoolean());
+        //45.69367953108681, 25.538717089037608
+       // 45.70114024963515, 25.667332433354048
+      //  45.63032417299258, 25.675416001893144
+      //  45.61568575752174, 25.583032365439777
+     //   45.61568575752174+random.nextFloat()*(45.70114024963515-45.61568575752174);
+        super.setLon((float) (45.61568575752174+random.nextFloat()*(45.70114024963515-45.61568575752174)));
+        super.setLat((float)(25.538717089037608+random.nextFloat()*(25.675416001893144-25.538717089037608)));
     }
     @Override
     public List<Product> getProducts()
