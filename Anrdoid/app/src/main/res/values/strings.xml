@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Food Delivery App</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="pass_recovery_step1">Recuperare parola pas 1 din 3</string>
+    <string name="pass_recovery_step2">Recuperare parola pas 2 din 3</string>
+    <string name="pass_recovery_step3">Recuperare parola pas 3 din 3</string>
+    <string name="pass_not_match">Campurile nu coincid</string>
+    <string name="invalid_email">Textul introdus nu este un email valid</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
