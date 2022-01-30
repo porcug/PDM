@@ -1,7 +1,7 @@
 package com.unitbv.backend.exception;
 
-public class EmailNotSentException extends RuntimeException {
-    public EmailNotSentException(String message) {
+public class InvalidResourceException extends RuntimeException {
+    public InvalidResourceException(String message) {
         super(message);
     }
 }

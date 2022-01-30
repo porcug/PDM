@@ -8,9 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BackendApplication {
 
-    public static void main(String[] args) {
-        Logger logger = LoggerFactory.getLogger(BackendApplication.class);
-        logger.info("Ana are mere!");
+    public static void main(String[] args){
         SpringApplication.run(BackendApplication.class, args);
 
     }

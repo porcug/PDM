@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name = "_user")
 @Builder
@@ -27,17 +26,6 @@ public class UserDO {
     private String email;
     @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "phone", nullable = false)
-    private String phone;
     @Column(name = "role", nullable = false)
     private UserRole role;
-    @OneToOne(mappedBy = "manager", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private RestaurantDO restaurantManager;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "restaurant_seller_id")
-    private RestaurantDO restaurantSeller;
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<OrderDO> clientOrders;
-    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<OrderDO> deliveryOrders;
 }
