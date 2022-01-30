@@ -6,9 +6,7 @@ import com.unitbv.backend.model.dto.UserDTO;
 
 public interface UserService {
 
-    void sendConfirmationCode(UserDTO user);
-
-    UserDTO createUser(int confirmationCode);
+    UserDTO createUser(UserDTO user);
 
     void deleteUser(int id);
 

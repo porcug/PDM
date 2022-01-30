@@ -9,19 +9,14 @@ import com.unitbv.backend.model.dto.UserDTO;
 import com.unitbv.backend.model.entity.UserDO;
 import com.unitbv.backend.repository.UserRepository;
 import com.unitbv.backend.service.interfaces.UserService;
-import com.unitbv.backend.temporary.TemporaryUsers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Locale;
-import java.util.Random;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,39 +25,16 @@ public class UserServiceImpl implements UserService {
     private ModelMapper modelMapper;
     private MessageSource messageSource;
     private JWTGenerator jwtGenerator;
-    private TemporaryUsers temporaryUsers;
     private JavaMailSender mailSender;
     private BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    @Async
-    public void sendConfirmationCode(UserDTO user) {
-        userRepository.findByEmail(user.getEmail()).ifPresent((userDO) -> {
+    public UserDTO createUser(UserDTO user) {
+        userRepository.findByEmail(user.getEmail()).ifPresent((u) -> {
             throw new ResourceAlreadyExistsException(
                     messageSource.getMessage("api.error.user.already.exists", null, Locale.ENGLISH)
             );
         });
-
-            int confirmationCode = new Random().nextInt(900000) + 100000;
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setText("Hello " + user.getFirstName() + ",\n" + "Your confirmation code is " + confirmationCode + ".\n Have a nice day!");
-            message.setTo(user.getEmail());
-            message.setSubject("Confirm your email");
-            message.setFrom("md8860276@gmail.com");
-            mailSender.send(message);
-            temporaryUsers.addUser(confirmationCode, user);
-        
-
-    }
-
-    @Override
-    public UserDTO createUser(int confirmationCode) {
-        UserDTO user = temporaryUsers.getUser(confirmationCode).orElseThrow(() -> {
-            throw new ResourceNotFoundException(
-                    messageSource.getMessage("api.error.invalid.confirmation.code", null, Locale.ENGLISH)
-            );
-        });
-        temporaryUsers.removeUser(confirmationCode);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         UserDO userDO = userRepository.save(modelMapper.map(user, UserDO.class));
         return modelMapper.map(userDO, UserDTO.class);
@@ -104,11 +76,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public void setJwtGenerator(JWTGenerator jwtGenerator) {
         this.jwtGenerator = jwtGenerator;
-    }
-
-    @Autowired
-    public void setTemporaryUsers(TemporaryUsers temporaryUsers) {
-        this.temporaryUsers = temporaryUsers;
     }
 
     @Autowired

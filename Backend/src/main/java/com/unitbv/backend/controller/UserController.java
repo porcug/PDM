@@ -23,20 +23,14 @@ public class UserController {
     @Autowired
     private PermissionValidator permissionValidator;
 
-    @PostMapping("/sendConfirmationCode")
-    public ResponseEntity<Void> sendConfirmationCode(@Valid @RequestBody UserDTO user) {
-        userService.sendConfirmationCode(user);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @PostMapping("/create")
-    public ResponseEntity<UserDTO> createUser(@RequestBody int confirmationCode) {
-        return new ResponseEntity<>(userService.createUser(confirmationCode), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO user) {
+        return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
     }
 
     @DeleteMapping(params = "id")
     public ResponseEntity<Void> deleteUser(@RequestParam int id, @RequestHeader(value = "jwt") String header) {
-        if (permissionValidator.isAllowed(header, List.of(UserRole.ADMIN, UserRole.CLIENT))) {
+        if (permissionValidator.isAllowed(header, List.of(UserRole.ADMIN, UserRole.CLIENT, UserRole.DELIVERY))) {
             userService.deleteUser(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
