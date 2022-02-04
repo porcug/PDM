@@ -10,12 +10,14 @@ import com.unitbv.backend.model.entity.UserDO;
 import com.unitbv.backend.repository.UserRepository;
 import com.unitbv.backend.service.interfaces.UserService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Locale;
 
 @Service
@@ -29,12 +31,31 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     @Override
+    public List<UserDTO> getAll() {
+
+        List<UserDO> users = userRepository.findAllOrderByIdASC();
+        return modelMapper.map(users, new TypeToken<List<UserDTO>>() {
+        }.getType());
+    }
+
+    @Override
     public UserDTO createUser(UserDTO user) {
         userRepository.findByEmail(user.getEmail()).ifPresent((u) -> {
             throw new ResourceAlreadyExistsException(
                     messageSource.getMessage("api.error.user.already.exists", null, Locale.ENGLISH)
             );
         });
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        UserDO userDO = userRepository.save(modelMapper.map(user, UserDO.class));
+        return modelMapper.map(userDO, UserDTO.class);
+    }
+
+    @Override
+    public UserDTO editUser(UserDTO user) {
+        userRepository.findById(user.getId())
+                .orElseThrow(() -> {
+                    throw new ResourceNotFoundException(messageSource.getMessage("api.error.user.not.found", null, Locale.ENGLISH));
+                });
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         UserDO userDO = userRepository.save(modelMapper.map(user, UserDO.class));
         return modelMapper.map(userDO, UserDTO.class);

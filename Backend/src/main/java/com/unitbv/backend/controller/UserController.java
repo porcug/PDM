@@ -23,14 +23,30 @@ public class UserController {
     @Autowired
     private PermissionValidator permissionValidator;
 
+    @GetMapping
+    public ResponseEntity<List<UserDTO>> getAllUsers(@RequestHeader(value = "jwt") String header) {
+        if (permissionValidator.isAllowed(header, List.of(UserRole.ADMIN))) {
+            return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    }
+
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO user) {
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
     }
 
+    @PutMapping
+    public ResponseEntity<UserDTO> editUser(@RequestHeader(value = "jwt") String header, @Valid @RequestBody UserDTO user) {
+        if (permissionValidator.isAllowed(header, List.of(UserRole.values()))) {
+            return new ResponseEntity<>(userService.editUser(user), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    }
+
     @DeleteMapping(params = "id")
     public ResponseEntity<Void> deleteUser(@RequestParam int id, @RequestHeader(value = "jwt") String header) {
-        if (permissionValidator.isAllowed(header, List.of(UserRole.ADMIN, UserRole.CLIENT, UserRole.DELIVERY))) {
+        if (permissionValidator.isAllowed(header, List.of(UserRole.values()))) {
             userService.deleteUser(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
